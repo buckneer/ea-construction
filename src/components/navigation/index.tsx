@@ -1,92 +1,73 @@
 "use client";
 import React, { useState } from 'react';
-import Image from "next/image";
+import Image from 'next/image';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-function Navbar() {
+const links = [
+  { name: 'Home', href: '#' },
+  { name: 'Services', href: '#' },
+  { name: 'Projects', href: '#' },
+  { name: 'About Us', href: '#' },
+  { name: 'Contact', href: '#' },
+];
 
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
-	};
+  return (
+    <header className="fixed w-full bg-white border-b border-gray-200 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <Image src="/img/logos/logo.png" alt="EAstronghold" width={50} height={50} />
+        </div>
 
-	return (
-		<header className="fixed w-full bg-white shadow-md z-50">
-				<div className="container mx-auto px-6 py-4">
-					<div className="flex items-center justify-between">
-						<div className="flex items-center">
-							<Image src="/img/logos/logo.png" alt="EA Construction" width="70" height="70" />
-						</div>
+        {/* Desktop Links */}
+        <nav className="hidden md:flex space-x-6 items-center">
+          {links.map(link => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="relative text-gray-800 font-medium hover:text-malachite-500 transition">
+              <span className="uppercase tracking-wide text-sm">{link.name}</span>
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-malachite-500 transition-all group-hover:w-full"></span>
+            </a>
+          ))}
+          <button className="ml-6 bg-malachite-400 hover:bg-malachite-500 text-white font-semibold py-2 px-6 rounded-lg transition">
+            Get a Quote
+          </button>
+        </nav>
 
-						{/* Desktop Navigation */}
-						<nav className="hidden md:flex items-center space-x-8">
-							<a href="#" className="text-gray-800 hover:text-orange-500 font-medium">
-								Home
-							</a>
-							<a href="#" className="text-gray-800 hover:text-orange-500 font-medium">
-								Services
-							</a>
-							<a href="#" className="text-gray-800 hover:text-orange-500 font-medium">
-								About Us
-							</a>
-							<a href="#" className="text-gray-800 hover:text-orange-500 font-medium">
-								Contact
-							</a>
-							<button className="bg-malachite-400 hover:bg-malachite-500 text-black font-black rounded py-2 px-6 rounded-button transition duration-300 cursor-pointer whitespace-nowrap">
-								Get a Quote
-							</button>
-						</nav>
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-gray-800 focus:outline-none">
+          {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+      </div>
 
-						{/* Mobile menu button */}
-						<div className="md:hidden">
-							<button
-								onClick={toggleMenu}
-								className="text-gray-800 hover:text-orange-500 cursor-pointer whitespace-nowrap"
-							>
-								<i
-									className={`fas ${
-										isMenuOpen ? "fa-times" : "fa-bars"
-									} text-2xl`}
-								></i>
-							</button>
-						</div>
-					</div>
-
-					{/* Mobile Navigation */}
-					{isMenuOpen && (
-						<div className="md:hidden mt-4 pb-4">
-							<a
-								href="#"
-								className="block py-2 text-gray-800 hover:text-orange-500 font-medium"
-							>
-								Home
-							</a>
-							<a
-								href="#"
-								className="block py-2 text-gray-800 hover:text-orange-500 font-medium"
-							>
-								Services
-							</a>
-							<a
-								href="#"
-								className="block py-2 text-gray-800 hover:text-orange-500 font-medium"
-							>
-								About Us
-							</a>
-							<a
-								href="#"
-								className="block py-2 text-gray-800 hover:text-orange-500 font-medium"
-							>
-								Contact
-							</a>
-							<button className="mt-2 bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-button transition duration-300 w-full cursor-pointer whitespace-nowrap">
-								Get a Quote
-							</button>
-						</div>
-					)}
-				</div>
-			</header>
-	);
+      {/* Mobile Menu Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-white transform transition-transform duration-300 z-40 ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="px-6 py-8 flex flex-col space-y-6">
+          {links.map(link => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-lg text-gray-800 hover:text-malachite-500 transition">
+              {link.name}
+            </a>
+          ))}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-4 bg-malachite-400 hover:bg-malachite-500 text-white font-semibold py-2 px-8 rounded-lg transition self-start">
+            Get a Quote
+          </button>
+        </div>
+      </div>
+    </header>
+  );
 }
-
-export default Navbar;

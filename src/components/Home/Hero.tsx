@@ -25,7 +25,7 @@ function Hero() {
 							timeliness.
 						</p>
 						<div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-							<button className="bg-malachite-400 hover:bg-malachite-500 text-black py-3 px-8 rounded-button transition duration-300 text-lg font-medium cursor-pointer whitespace-nowrap">
+							<button className="bg-malachite-400 hover:bg-malachite-500 text-white py-3 px-8 rounded-button transition duration-300 text-lg font-medium cursor-pointer whitespace-nowrap">
 								Our Services
 							</button>
 							<button className="bg-transparent hover:bg-white/10 text-white border-2 border-white py-3 px-8 rounded-button transition duration-300 text-lg font-medium cursor-pointer whitespace-nowrap">
