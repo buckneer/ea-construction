@@ -104,7 +104,7 @@ export default function Contact() {
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 shrink-0">
                   <FaMapMarkerAlt className="text-xl text-malachite-400" />
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 shrink-0">
                   <FaPhoneAlt className="text-xl text-malachite-400" />
                 </div>
                 <div>
@@ -131,7 +131,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 shrink-0">
                   <FaEnvelope className="text-xl text-malachite-400" />
                 </div>
                 <div>
@@ -144,7 +144,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <div className="w-12 h-12 bg-malachite-50 rounded-full flex items-center justify-center mr-4 shrink-0">
                   <FaClock className="text-xl text-malachite-400" />
                 </div>
                 <div>
